@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>dCal — ローカル完結のスケジュール帳</title>
+<meta name="description"
+      content="あなたのMac / iPhoneから出ない、書ける、見渡せる、長く残せる。Windows hyCalendarと完全互換のローカル専用カレンダー。">
+<meta property="og:title" content="dCal">
+<meta property="og:description" content="ローカル完結のスケジュール帳。あなたのデバイスからデータが出ない。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <nav class="nav">
+      <span class="logo">dCal</span>
+      <ul>
+        <li><a href="#features">特長</a></li>
+        <li><a href="#why">なぜローカル</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="privacy.html">プライバシー</a></li>
+      </ul>
+    </nav>
+
+    <h1>
+      ローカル完結のスケジュール帳。<br>
+      <span class="accent">あなたのMac / iPhone から、データが出ない。</span>
+    </h1>
+    <p class="lead">
+      クラウド連携を一切持たない、書ける手帳のような macOS / iOS カレンダー。
+      Windows用 <a href="https://github.com/takashi-ishio/hyCalendar">hyCalendar</a>
+      の `.cal` ファイルとバイト単位で完全互換。
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="#">Mac App Store で入手</a>
+      <a class="btn secondary" href="#">iOS App Store</a>
+    </div>
+    <p class="price-note">¥2,500 一括 / Universal Purchase (Mac + iOS)</p>
+  </div>
+</header>
+
+<section id="why" class="section">
+  <div class="container">
+    <h2>なぜ「ローカル完結」か</h2>
+    <table class="compare">
+      <thead>
+        <tr><th>一般的なカレンダーアプリ</th><th>dCal</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>予定がクラウドサーバーへ送信される</td><td><strong>デバイス内のみ。ネット通信なし</strong></td></tr>
+        <tr><td>AI 学習・広告ターゲティング対象になる可能性</td><td><strong>学習データに使われません</strong></td></tr>
+        <tr><td>アカウント乗っ取り = 全予定流出のリスク</td><td><strong>物理的にあなたの Mac/iPhone 内のみ</strong></td></tr>
+        <tr><td>サブスク終了でデータ閉じ込め</td><td><strong>プレーンテキストで永久保存</strong></td></tr>
+        <tr><td>月単位表示。月またぎの予定は分断</td><td><strong>4 週連続グリッド</strong></td></tr>
+        <tr><td>予定はタイトル中心</td><td><strong>1 日に長文メモ＋装飾</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="proof">
+      <h3>「ローカル完結」は物理的に証明されています</h3>
+      <pre><code>$ codesign -d --entitlements - dCal.app
+
+  com.apple.security.app-sandbox          ← 有効
+  com.apple.security.files.user-selected  ← 有効（ファイル選択時のみ）
+
+  com.apple.security.network.client       ← 不存在
+  com.apple.security.network.server       ← 不存在</code></pre>
+      <p>macOS の App Sandbox がネットワーク権限を許可していないため、
+        dCal は<strong>外部サーバーへ接続したくてもできません</strong>。</p>
+    </div>
+  </div>
+</section>
+
+<section id="features" class="section dark">
+  <div class="container">
+    <h2>特長</h2>
+    <div class="feature-grid">
+
+      <article class="feature">
+        <h3>4 週グリッドで月またぎが見える</h3>
+        <p>3〜6 週まで切り替え可能。期間予定はカラーラインで月境を貫いて連続表示。
+          Apple Calendar の月表示では分断される予定も一望できます。</p>
+      </article>
+
+      <article class="feature">
+        <h3>1 日に長文メモが書ける</h3>
+        <p>会議メモ・業務日誌・家族の連絡事項 — 太字・斜体・下線・色付けなど
+          Markdown 風の装飾も可能。本文全文検索で過去のメモを瞬時に発掘。</p>
+      </article>
+
+      <article class="feature">
+        <h3>hyCalendar ファイル互換</h3>
+        <p>Windows 版 hyCalendar の <code>.cal</code> ファイルをそのまま開けます。
+          バイト単位で完全互換 — Mac で編集して Windows に戻しても識別不能。</p>
+      </article>
+
+      <article class="feature">
+        <h3>日本の祝日対応</h3>
+        <p>振替休日・国民の休日も自動表示。1980〜2099 年に対応した
+          国民の祝日法ベースの計算ロジックを内蔵。</p>
+      </article>
+
+      <article class="feature">
+        <h3>過去年への素早いジャンプ (⌘J)</h3>
+        <p>年スクロール + 12 か月グリッドのポップオーバー。
+          2003 年でも 2099 年でも 2 クリックで遡れます。</p>
+      </article>
+
+      <article class="feature">
+        <h3>全文検索 (⌘F)</h3>
+        <p>日付メモ・期間予定タイトルを全件横断。マッチハイライト付き。
+          数千エントリのファイルでも瞬時。</p>
+      </article>
+
+      <article class="feature">
+        <h3>Mac + iPhone — 同期はあなたの自由</h3>
+        <p>iCloud Drive / Dropbox / Google Drive / OneDrive など、お好みの
+          クラウドファイル同期サービスを利用。dCal 自体は API を叩きません。</p>
+      </article>
+
+      <article class="feature">
+        <h3>プレーンテキストで永久保存</h3>
+        <p>独自バイナリ形式ではなく、テキストとして読める形式で保存。
+          20 年後に dCal がなくても、データは生き続けます。</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>こんな方に</h2>
+    <div class="audience-grid">
+      <div class="audience">⚖️ <strong>弁護士・税理士・司法書士</strong>
+        <p>顧問先名・案件名は守秘義務上クラウドに置けない</p></div>
+      <div class="audience">🩺 <strong>医師・心理士・歯科医</strong>
+        <p>患者氏名・診療予定は個人情報保護法対象</p></div>
+      <div class="audience">🏢 <strong>経営者・役員</strong>
+        <p>M&A・人事会議など機密スケジュール</p></div>
+      <div class="audience">✍️ <strong>ライター・フリーランス</strong>
+        <p>業務ログ・取材予定を長文で残したい</p></div>
+      <div class="audience">👨‍👩‍👧 <strong>家族のスケジュール管理</strong>
+        <p>クラウドアカウントなしで 4 週間先を一望</p></div>
+      <div class="audience">📜 <strong>Windows hyCalendar ユーザー</strong>
+        <p>長年使ってきた <code>.cal</code> をそのまま継続</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section pricing">
+  <div class="container">
+    <h2>価格</h2>
+    <div class="price-card">
+      <p class="price">¥2,500 <span>一括</span></p>
+      <p>Universal Purchase で Mac + iOS 両方利用可</p>
+      <ul>
+        <li>✔ サブスクリプションなし</li>
+        <li>✔ アカウント登録不要</li>
+        <li>✔ Family Sharing 対応</li>
+        <li>✔ アップデート無料</li>
+        <li>✔ プライバシーポリシーで <strong>「データを送信しない」</strong> を明文化</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="section dark">
+  <div class="container">
+    <h2>よくある質問</h2>
+
+    <details>
+      <summary>Q. データはどこに保存されるの?</summary>
+      <p>あなたが選んだ場所だけです。デフォルトは Mac/iPhone のローカルストレージ。
+        iCloud Drive やサードパーティのクラウドサービスにファイルを置くこともできますが、
+        dCal 自体はそれらと一切通信しません。</p>
+    </details>
+
+    <details>
+      <summary>Q. クラウド同期はないの?</summary>
+      <p>はい、ありません。代わりに iCloud Drive / Dropbox / Google Drive /
+        OneDrive 等の汎用ファイル同期サービスを使って、自分で <code>.cal</code>
+        ファイルを同期できます。</p>
+    </details>
+
+    <details>
+      <summary>Q. Windows 版 hyCalendar のファイルは開ける?</summary>
+      <p>はい、バイト単位で完全互換です。実ファイル
+        (3MB+ / 7,000日項目 / 1,700期間予定) でも問題なく開けます。</p>
+    </details>
+
+    <details>
+      <summary>Q. AI 学習データに使われる?</summary>
+      <p>使われません。dCal はネットワーク通信を持たないため、どんなクラウドサービスや
+        AI モデルにも一文字も送られません。</p>
+    </details>
+
+    <details>
+      <summary>Q. 法人向けライセンスはある?</summary>
+      <p>2027 年に対応予定です。お問い合わせください。</p>
+    </details>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>dCal — Made with ♥ in Japan.<br>
+      Inspired by <a href="https://github.com/takashi-ishio/hyCalendar">hyCalendar</a>
+      by Takashi Ishio (MIT).</p>
+    <ul>
+      <li><a href="privacy.html">プライバシーポリシー</a></li>
+      <li><a href="terms.html">利用規約</a></li>
+      <li><a href="mailto:info@dangkang.com">お問い合わせ</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
