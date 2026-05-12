@@ -26,13 +26,15 @@
     </nav>
 
     <h1>
-      ローカル完結のスケジュール帳。<br>
-      <span class="accent">あなたのMac / iPhone から、データが出ない。</span>
+      ローカルファースト、書ける手帳。<br>
+      <span class="accent">dCal自身はサーバーに通信しません。</span>
     </h1>
     <p class="lead">
-      クラウド連携を一切持たない、書ける手帳のような macOS / iOS カレンダー。
-      Windows用 <a href="https://github.com/takashi-ishio/hyCalendar">hyCalendar</a>
-      の `.cal` ファイルとバイト単位で完全互換。
+      予定をデバイス内のファイルに直接書き込む macOS / iOS カレンダー。
+      クラウド型カレンダーのように独自サーバーへ送信することはなく、同期方法はあなたの自由
+      （ローカル保存 / iCloud Drive / Dropbox など）。Windows用
+      <a href="https://github.com/takashi-ishio/hyCalendar">hyCalendar</a>
+      の <code>.cal</code> ファイルとバイト単位で完全互換。
     </p>
     <div class="cta">
       <a class="btn primary" href="#">Mac App Store で入手</a>
@@ -44,23 +46,24 @@
 
 <section id="why" class="section">
   <div class="container">
-    <h2>なぜ「ローカル完結」か</h2>
+    <h2>なぜ「ローカルファースト」か</h2>
     <table class="compare">
       <thead>
-        <tr><th>一般的なカレンダーアプリ</th><th>dCal</th></tr>
+        <tr><th>クラウド型カレンダー</th><th>dCal（ローカルファースト型）</th></tr>
       </thead>
       <tbody>
-        <tr><td>予定がクラウドサーバーへ送信される</td><td><strong>デバイス内のみ。ネット通信なし</strong></td></tr>
-        <tr><td>AI 学習・広告ターゲティング対象になる可能性</td><td><strong>学習データに使われません</strong></td></tr>
-        <tr><td>アカウント乗っ取り = 全予定流出のリスク</td><td><strong>物理的にあなたの Mac/iPhone 内のみ</strong></td></tr>
-        <tr><td>サブスク終了でデータ閉じ込め</td><td><strong>プレーンテキストで永久保存</strong></td></tr>
+        <tr><td>アプリがメーカー独自サーバーへ自動送信</td><td><strong>アプリ自身は一切通信しない</strong></td></tr>
+        <tr><td>AI 学習・広告ターゲティング対象になる可能性</td><td><strong>アプリ経由で学習データに使われることはありません</strong></td></tr>
+        <tr><td>アカウント乗っ取りで全予定流出リスク</td><td><strong>アカウント自体が存在しない</strong></td></tr>
+        <tr><td>サブスク終了でデータ閉じ込め</td><td><strong>プレーンテキストで永久保存・どこへでも持ち運び可</strong></td></tr>
+        <tr><td>同期はメーカー指定の方法のみ</td><td><strong>同期方法はあなたの自由（iCloud / Dropbox / 同期なし）</strong></td></tr>
         <tr><td>月単位表示。月またぎの予定は分断</td><td><strong>4 週連続グリッド</strong></td></tr>
         <tr><td>予定はタイトル中心</td><td><strong>1 日に長文メモ＋装飾</strong></td></tr>
       </tbody>
     </table>
 
     <div class="proof">
-      <h3>「ローカル完結」は物理的に証明されています</h3>
+      <h3>「アプリ自身がネット通信を持たない」は技術的に証明できます</h3>
       <pre><code>$ codesign -d --entitlements - dCal.app
 
   com.apple.security.app-sandbox          ← 有効
@@ -68,8 +71,11 @@
 
   com.apple.security.network.client       ← 不存在
   com.apple.security.network.server       ← 不存在</code></pre>
-      <p>macOS の App Sandbox がネットワーク権限を許可していないため、
-        dCal は<strong>外部サーバーへ接続したくてもできません</strong>。</p>
+      <p>macOS の App Sandbox がネットワーク権限を一切許可していないため、
+        dCal は<strong>外部サーバーへ接続したくてもできません</strong>。
+        ファイル同期に iCloud Drive や Dropbox を使う場合、データはそれらの
+        クラウドを経由しますが、それは「あなたが選んだ同期方法」であり、
+        dCal アプリ自体がデータを送信することはありません。</p>
     </div>
   </div>
 </section>
@@ -116,9 +122,11 @@
       </article>
 
       <article class="feature">
-        <h3>Mac + iPhone — 同期はあなたの自由</h3>
-        <p>iCloud Drive / Dropbox / Google Drive / OneDrive など、お好みの
-          クラウドファイル同期サービスを利用。dCal 自体は API を叩きません。</p>
+        <h3>Mac + iPhone — 同期方法はあなたが選ぶ</h3>
+        <p>iCloud Drive / Dropbox / Google Drive / OneDrive ／ ローカルのみ —
+          お好みの方法で <code>.cal</code> ファイルを共有できます。dCal は
+          そのサービスの API を叩かず、同期済みのローカルファイルを読むだけ。
+          クラウド経由か否かはあなたの選択次第です。</p>
       </article>
 
       <article class="feature">
@@ -174,16 +182,28 @@
 
     <details>
       <summary>Q. データはどこに保存されるの?</summary>
-      <p>あなたが選んだ場所だけです。デフォルトは Mac/iPhone のローカルストレージ。
-        iCloud Drive やサードパーティのクラウドサービスにファイルを置くこともできますが、
-        dCal 自体はそれらと一切通信しません。</p>
+      <p>あなたが選んだ場所です。ローカルディスクのみで完結させることも、
+        iCloud Drive や Dropbox 等の同期フォルダに置いて他デバイスと共有することもできます。
+        重要なのは <strong>どこに置くかはあなたが決める</strong> という点です。
+        dCal アプリ側からはどのクラウドサービスへも自動送信されません。</p>
     </details>
 
     <details>
-      <summary>Q. クラウド同期はないの?</summary>
-      <p>はい、ありません。代わりに iCloud Drive / Dropbox / Google Drive /
-        OneDrive 等の汎用ファイル同期サービスを使って、自分で <code>.cal</code>
-        ファイルを同期できます。</p>
+      <summary>Q. アプリ内蔵のクラウド同期はないの?</summary>
+      <p>ありません。dCal はアプリ単体ではクラウドサービスと通信しない設計です。
+        代わりに iCloud Drive / Dropbox / Google Drive / OneDrive 等の
+        汎用ファイル同期サービスを使えば、自分で <code>.cal</code>
+        ファイルを複数デバイス間で同期できます。完全オフライン運用も可能です。</p>
+    </details>
+
+    <details>
+      <summary>Q. iCloud Drive / Dropbox 経由ならクラウドに置くことになるのでは?</summary>
+      <p>はい、その通りです。iCloud Drive や Dropbox にファイルを置けば、
+        それらのクラウドサービスにデータが保存されます。ただし dCal アプリ自身は
+        どのクラウドサービスとも通信しないので、<strong>「どのクラウドを使うか」
+        「そもそも使わないか」を完全にあなたが選べます</strong>。
+        クラウド型カレンダー（Google Calendar 等）は同期方法そのものが固定で、
+        必ずメーカーのサーバーを経由します。そこが根本的な違いです。</p>
     </details>
 
     <details>
@@ -194,8 +214,10 @@
 
     <details>
       <summary>Q. AI 学習データに使われる?</summary>
-      <p>使われません。dCal はネットワーク通信を持たないため、どんなクラウドサービスや
-        AI モデルにも一文字も送られません。</p>
+      <p>dCal アプリ経由で外部に送信されることはありません。
+        iCloud Drive / Dropbox 等を経由して保存する場合、その後のデータ取扱は
+        当該クラウドサービスのプライバシーポリシーに従います。
+        外部送信を完全に避けたい場合はローカル保存のみでの運用が可能です。</p>
     </details>
 
     <details>
