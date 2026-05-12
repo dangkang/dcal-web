@@ -214,6 +214,60 @@ pre code { background: transparent; padding: 0; color: inherit; }
     .phone-row, .phone-gallery { gap: 18px; }
 }
 
+/* ===== Mac screenshot gallery =====
+   Mac shots are wider than tall — they're captured from the app's own
+   content view (no titlebar), so we wrap them in a minimal browser-style
+   frame with three traffic-light dots to read as a desktop window. */
+
+.mac-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 28px;
+    margin-top: 8px;
+}
+
+.mac-frame {
+    background: var(--bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow:
+        0 30px 60px -20px rgba(15, 23, 42, 0.20),
+        0 0 0 1px var(--border);
+    margin: 0;
+}
+.mac-frame .titlebar {
+    background: linear-gradient(180deg, #f3f4f6, #e5e7eb);
+    border-bottom: 1px solid var(--border);
+    padding: 9px 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.mac-frame .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.mac-frame .dot.red    { background: #ff5f57; }
+.mac-frame .dot.yellow { background: #febc2e; }
+.mac-frame .dot.green  { background: #28c840; }
+.mac-frame img {
+    width: 100%;
+    display: block;
+}
+.mac-frame figcaption {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 12px 8px;
+    font-weight: 500;
+}
+
+@media (max-width: 640px) {
+    .mac-gallery { grid-template-columns: 1fr; gap: 18px; }
+}
+
 /* ===== Compare table ===== */
 
 .compare {
