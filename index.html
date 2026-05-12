@@ -3,12 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>dCal — ローカルファーストのスケジュール帳</title>
+<title>dCal — 書ける手帳のカレンダー</title>
 <meta name="description"
-      content="アプリ自身はサーバーに通信しない、書ける手帳のような macOS / iOS カレンダー。同期方法はあなたが選ぶ。Windows hyCalendar とバイト互換。">
-<meta property="og:title" content="dCal">
-<meta property="og:description" content="ローカルファーストのスケジュール帳。アプリ自身はサーバーに通信しません。">
+      content="予定をデバイス内のファイルに直接書く macOS / iOS カレンダー。サーバーに送信せず、同期方法はあなたが選べます。">
+<meta property="og:title" content="dCal — 書ける手帳のカレンダー">
+<meta property="og:description"
+      content="サーバーに送らない、書ける手帳のカレンダー。アカウント不要、サブスクなし。">
 <meta property="og:type" content="website">
+<link rel="alternate" hreflang="ja" href="https://dangkang.github.io/dcal-web/">
+<link rel="alternate" hreflang="en" href="https://dangkang.github.io/dcal-web/en/">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -22,19 +25,17 @@
         <li><a href="#why">なぜローカル</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="privacy.html">プライバシー</a></li>
+        <li class="lang"><a href="en/">English</a></li>
       </ul>
     </nav>
 
     <h1>
-      ローカルファースト、書ける手帳。<br>
-      <span class="accent">dCal自身はサーバーに通信しません。</span>
+      書ける手帳のカレンダー。<br>
+      <span class="accent">予定はサーバーへ送りません。</span>
     </h1>
     <p class="lead">
-      予定をデバイス内のファイルに直接書き込む macOS / iOS カレンダー。
-      クラウド型カレンダーのように独自サーバーへ送信することはなく、同期方法はあなたの自由
-      （ローカル保存 / iCloud Drive / Dropbox など）。Windows用
-      <a href="https://github.com/takashi-ishio/hyCalendar">hyCalendar</a>
-      の <code>.cal</code> ファイルとバイト単位で完全互換。
+      予定をあなたのデバイス上のファイルに直接書き込む、macOS / iOS のスケジュール帳。
+      アカウント不要、サブスクなし。同期方法もあなたが選べます。
     </p>
     <div class="cta">
       <a class="btn primary" href="#">Mac App Store で入手</a>
@@ -98,12 +99,6 @@
       </article>
 
       <article class="feature">
-        <h3>hyCalendar ファイル互換</h3>
-        <p>Windows 版 hyCalendar の <code>.cal</code> ファイルをそのまま開けます。
-          バイト単位で完全互換 — Mac で編集して Windows に戻しても識別不能。</p>
-      </article>
-
-      <article class="feature">
         <h3>日本の祝日対応</h3>
         <p>振替休日・国民の休日も自動表示。1980〜2099 年に対応した
           国民の祝日法ベースの計算ロジックを内蔵。</p>
@@ -125,14 +120,20 @@
         <h3>Mac + iPhone — 同期方法はあなたが選ぶ</h3>
         <p>iCloud Drive / Dropbox / Google Drive / OneDrive ／ ローカルのみ —
           お好みの方法で <code>.cal</code> ファイルを共有できます。dCal は
-          そのサービスの API を叩かず、同期済みのローカルファイルを読むだけ。
-          クラウド経由か否かはあなたの選択次第です。</p>
+          そのサービスの API を叩かず、同期済みのローカルファイルを読むだけ。</p>
       </article>
 
       <article class="feature">
         <h3>プレーンテキストで永久保存</h3>
         <p>独自バイナリ形式ではなく、テキストとして読める形式で保存。
           20 年後に dCal がなくても、データは生き続けます。</p>
+      </article>
+
+      <article class="feature">
+        <h3>Windows hyCalendar 互換</h3>
+        <p>Windows 用フリーソフト <a href="https://github.com/takashi-ishio/hyCalendar">hyCalendar</a>
+          の <code>.cal</code> ファイルをそのまま開けます。バイト単位の完全互換。
+          長年 hyCalendar を使ってきた方の Mac 移行先として最適です。</p>
       </article>
 
     </div>
@@ -153,7 +154,7 @@
         <p>業務ログ・取材予定を長文で残したい</p></div>
       <div class="audience">👨‍👩‍👧 <strong>家族のスケジュール管理</strong>
         <p>クラウドアカウントなしで 4 週間先を一望</p></div>
-      <div class="audience">📜 <strong>Windows hyCalendar ユーザー</strong>
+      <div class="audience">📜 <strong>hyCalendar ユーザー</strong>
         <p>長年使ってきた <code>.cal</code> をそのまま継続</p></div>
     </div>
   </div>
@@ -236,6 +237,7 @@
     <ul>
       <li><a href="privacy.html">プライバシーポリシー</a></li>
       <li><a href="terms.html">利用規約</a></li>
+      <li><a href="en/">English</a></li>
       <li><a href="mailto:info@dangkang.com">お問い合わせ</a></li>
     </ul>
   </div>

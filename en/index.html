@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>dCal — A writable calendar that stays on your device</title>
+<meta name="description"
+      content="A macOS / iOS calendar that writes your schedule directly to files on your device. No accounts, no servers, no subscription — you choose how to sync.">
+<meta property="og:title" content="dCal — A writable calendar that stays on your device">
+<meta property="og:description"
+      content="No accounts. No servers. Just your schedule, in a file you control.">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="ja" href="https://dangkang.github.io/dcal-web/">
+<link rel="alternate" hreflang="en" href="https://dangkang.github.io/dcal-web/en/">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <nav class="nav">
+      <span class="logo">dCal</span>
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#why">Why local-first</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li class="lang"><a href="../">日本語</a></li>
+      </ul>
+    </nav>
+
+    <h1>
+      A writable calendar<br>
+      <span class="accent">that stays on your device.</span>
+    </h1>
+    <p class="lead">
+      dCal writes your schedule directly to a file on your Mac / iPhone.
+      No accounts, no servers, no subscription — you choose how to sync,
+      or not to sync at all.
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="#">Get on Mac App Store</a>
+      <a class="btn secondary" href="#">iOS App Store</a>
+    </div>
+    <p class="price-note">$19.99 one-time / Universal Purchase (Mac + iOS)</p>
+  </div>
+</header>
+
+<section id="why" class="section">
+  <div class="container">
+    <h2>Why local-first?</h2>
+    <table class="compare">
+      <thead>
+        <tr><th>Cloud-based calendars</th><th>dCal (local-first)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>The app auto-syncs to the vendor's servers</td><td><strong>The app makes no network calls at all</strong></td></tr>
+        <tr><td>Your data may be used for AI training or ad targeting</td><td><strong>Nothing leaves the app's process</strong></td></tr>
+        <tr><td>Account compromise = full schedule leaked</td><td><strong>No account exists in the first place</strong></td></tr>
+        <tr><td>Subscription ends → data locked away</td><td><strong>Plain-text files, yours forever</strong></td></tr>
+        <tr><td>Sync is hardwired to the vendor</td><td><strong>You choose: iCloud / Dropbox / nothing</strong></td></tr>
+        <tr><td>Monthly view splits multi-month events</td><td><strong>4-week continuous grid</strong></td></tr>
+        <tr><td>Events are mostly just a title</td><td><strong>Unlimited per-day notes with formatting</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="proof">
+      <h3>"The app cannot talk to the network" — provable, not a slogan</h3>
+      <pre><code>$ codesign -d --entitlements - dCal.app
+
+  com.apple.security.app-sandbox          ← enabled
+  com.apple.security.files.user-selected  ← enabled (file picker only)
+
+  com.apple.security.network.client       ← absent
+  com.apple.security.network.server       ← absent</code></pre>
+      <p>macOS App Sandbox grants dCal <strong>zero</strong> network entitlements,
+        so the OS itself refuses any outbound connection from the app.
+        If you choose to sync via iCloud Drive or Dropbox, your <code>.cal</code>
+        file does pass through those services — but that's a sync method
+        <em>you</em> picked, not something dCal does on its own.</p>
+    </div>
+  </div>
+</section>
+
+<section id="features" class="section dark">
+  <div class="container">
+    <h2>Features</h2>
+    <div class="feature-grid">
+
+      <article class="feature">
+        <h3>4-week grid view</h3>
+        <p>Switch between 3 and 6 weeks. Multi-day events render as continuous
+          colored lines that don't break at month boundaries — something
+          Apple Calendar's monthly view can't do.</p>
+      </article>
+
+      <article class="feature">
+        <h3>Long-form notes per day</h3>
+        <p>Every day cell holds unlimited text — meeting minutes, work logs,
+          family notes. Markdown-style formatting (bold, italic, color)
+          plus full-text search across all your notes.</p>
+      </article>
+
+      <article class="feature">
+        <h3>Japanese holidays built-in</h3>
+        <p>Including substitute holidays and citizens' holidays. Computed
+          from the official statute, valid 1980 to 2099, no online lookup
+          required.</p>
+      </article>
+
+      <article class="feature">
+        <h3>Jump to any date (⌘J)</h3>
+        <p>Horizontal year scroller plus a 12-month grid in a single popover.
+          Two clicks to reach 2003 or 2099.</p>
+      </article>
+
+      <article class="feature">
+        <h3>Fast full-text search (⌘F)</h3>
+        <p>Search every day note and event title with match highlighting.
+          Stays instant even on multi-thousand-entry files.</p>
+      </article>
+
+      <article class="feature">
+        <h3>Mac + iPhone — you choose how to sync</h3>
+        <p>Use iCloud Drive, Dropbox, Google Drive, OneDrive, or no sync at all.
+          dCal never talks to those services' APIs — it just reads the file
+          your sync client puts on disk.</p>
+      </article>
+
+      <article class="feature">
+        <h3>Plain text, forever</h3>
+        <p>No proprietary binary. Your <code>.cal</code> file remains
+          human-readable. Even without dCal twenty years from now, your data
+          stays alive.</p>
+      </article>
+
+      <article class="feature">
+        <h3>hyCalendar file compatibility</h3>
+        <p>dCal opens <code>.cal</code> files from the Windows freeware
+          <a href="https://github.com/takashi-ishio/hyCalendar">hyCalendar</a>
+          byte-for-byte unchanged. If you've used hyCalendar for years and
+          want to keep going on macOS, this is your path.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Who it's for</h2>
+    <div class="audience-grid">
+      <div class="audience">⚖️ <strong>Lawyers, accountants, tax advisors</strong>
+        <p>Client and case names should never be on a cloud you don't own</p></div>
+      <div class="audience">🩺 <strong>Doctors, therapists, dentists</strong>
+        <p>Patient identifiers, appointment data — all sensitive</p></div>
+      <div class="audience">🏢 <strong>Executives</strong>
+        <p>M&A, hiring, board meetings — schedules you can't risk leaking</p></div>
+      <div class="audience">✍️ <strong>Writers and freelancers</strong>
+        <p>Daily logs and source meetings worth keeping long-form</p></div>
+      <div class="audience">👨‍👩‍👧 <strong>Family schedule keepers</strong>
+        <p>Want four weeks at a glance, without signing the family up for an account</p></div>
+      <div class="audience">📜 <strong>hyCalendar veterans</strong>
+        <p>Migrating to Apple but keeping decades of <code>.cal</code> data</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section pricing">
+  <div class="container">
+    <h2>Pricing</h2>
+    <div class="price-card">
+      <p class="price">$19.99 <span>one-time</span></p>
+      <p>Universal Purchase unlocks Mac and iOS</p>
+      <ul>
+        <li>✔ No subscription</li>
+        <li>✔ No account required</li>
+        <li>✔ Family Sharing supported</li>
+        <li>✔ Free updates</li>
+        <li>✔ Privacy policy explicitly states "the app sends no data"</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="section dark">
+  <div class="container">
+    <h2>FAQ</h2>
+
+    <details>
+      <summary>Q. Where is my data stored?</summary>
+      <p>Wherever you choose. You can keep everything on a local disk, or
+        place the file in iCloud Drive / Dropbox to share between devices.
+        The point is: <strong>you</strong> pick the location.
+        dCal never auto-sends your file anywhere.</p>
+    </details>
+
+    <details>
+      <summary>Q. So there's no built-in cloud sync?</summary>
+      <p>Correct. dCal does not talk to any cloud service of its own. If
+        you want multi-device sync, place the <code>.cal</code> file in
+        iCloud Drive, Dropbox, Google Drive, OneDrive, etc., and dCal reads
+        the synced local copy. Fully offline operation is also supported.</p>
+    </details>
+
+    <details>
+      <summary>Q. If I sync via iCloud Drive or Dropbox, isn't my data still in the cloud?</summary>
+      <p>Yes, that's true. If you place the file on iCloud Drive or Dropbox,
+        the data lives on those clouds. But dCal itself does not talk to
+        any of them — <strong>you decide which cloud to use, or none at all</strong>.
+        Cloud-based calendars like Google Calendar lock you into the vendor's
+        servers; that's the fundamental difference.</p>
+    </details>
+
+    <details>
+      <summary>Q. Can I open Windows hyCalendar files?</summary>
+      <p>Yes, byte-for-byte compatible. Real-world files (3 MB+, 7,000 day
+        entries, 1,700 period events) load without issue.</p>
+    </details>
+
+    <details>
+      <summary>Q. Will my data be used for AI training?</summary>
+      <p>Not via dCal — the app cannot transmit anything. If you choose to
+        sync via iCloud Drive or Dropbox, any downstream data handling falls
+        under those services' privacy policies. To eliminate all external
+        transmission, keep your files local-only.</p>
+    </details>
+
+    <details>
+      <summary>Q. Do you offer business / volume licensing?</summary>
+      <p>Planned for 2027. Please contact us.</p>
+    </details>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>dCal — Made with ♥ in Japan.<br>
+      Inspired by <a href="https://github.com/takashi-ishio/hyCalendar">hyCalendar</a>
+      by Takashi Ishio (MIT).</p>
+    <ul>
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+      <li><a href="../">日本語</a></li>
+      <li><a href="mailto:info@dangkang.com">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

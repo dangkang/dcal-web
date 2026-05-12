@@ -87,6 +87,15 @@ pre code { background: transparent; padding: 0; color: inherit; }
     font-weight: 500;
 }
 .nav a:hover { color: var(--text); text-decoration: none; }
+.nav li.lang a {
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text);
+}
+.nav li.lang a:hover {
+    background: var(--bg-soft);
+}
 
 .hero h1 {
     font-size: clamp(32px, 5vw, 56px);
