@@ -161,6 +161,51 @@ pre code { background: transparent; padding: 0; color: inherit; }
     margin: 0 0 12px;
 }
 
+/* ===== Preview / screenshots section ===== */
+
+.preview-section { padding: 80px 0; }
+
+.section-lead {
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 720px;
+    margin: -16px 0 40px;
+}
+
+.phone-row {
+    display: flex;
+    gap: 36px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+/* Soft "device" frame around each phone screenshot. iPhone 17 Pro
+   screenshots are 1290×2796 — we display them at ~280px wide and let
+   the browser scale, then wrap in a rounded card with subtle shadow.
+   We deliberately don't draw a true bezel: the iOS dynamic-island plus
+   home-indicator are already in the screenshot itself, so a clean
+   container reads as more modern than a marketing-style fake bezel. */
+.phone-frame {
+    width: 280px;
+    background: var(--bg);
+    padding: 6px;
+    border-radius: 36px;
+    box-shadow:
+        0 30px 60px -20px rgba(15, 23, 42, 0.25),
+        0 0 0 1px var(--border);
+}
+.phone-frame img {
+    width: 100%;
+    display: block;
+    border-radius: 30px;
+}
+
+@media (max-width: 640px) {
+    .phone-frame { width: min(280px, 80vw); }
+    .phone-row { gap: 20px; }
+}
+
 /* ===== Compare table ===== */
 
 .compare {
