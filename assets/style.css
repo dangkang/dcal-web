@@ -85,29 +85,6 @@ pre code { background: transparent; padding: 0; color: inherit; }
     box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
 }
 
-/* Hero app icon — sits above the H1 as a focal point. The macOS / iOS
-   "squircle" shape comes baked into the source PNG; we add a soft drop
-   shadow and a subtle scale on hover to feel app-store-shelf-like. */
-.hero-icon {
-    display: block;
-    width: 120px;
-    height: 120px;
-    margin: 48px 0 28px;
-    border-radius: 26px;
-    box-shadow:
-        0 12px 32px rgba(15, 23, 42, 0.14),
-        0 2px 6px rgba(15, 23, 42, 0.08);
-    transition: transform 200ms ease;
-}
-.hero-icon:hover { transform: scale(1.03); }
-@media (max-width: 720px) {
-    .hero-icon {
-        width: 96px;
-        height: 96px;
-        margin: 32px 0 20px;
-        border-radius: 22px;
-    }
-}
 .nav ul {
     margin-left: auto;
     list-style: none;
