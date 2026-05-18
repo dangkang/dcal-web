@@ -78,11 +78,14 @@ pre code { background: transparent; padding: 0; color: inherit; }
     gap: 10px;
 }
 .nav .logo-mark {
-    width: 32px;
-    height: 32px;
-    border-radius: 7px;
+    /* The source PNG already includes the squircle shape and a soft
+       baked-in drop shadow with proper alpha, so we deliberately do NOT
+       add a CSS box-shadow or border-radius here — both would paint at
+       the image's bounding rect, which is slightly larger than the
+       visible squircle, and produce a faint extra outline. */
+    width: 44px;
+    height: 44px;
     display: block;
-    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
 }
 
 .nav ul {
