@@ -1,15 +1,18 @@
 # dCal Landing Page
 
-The static site that lives at https://dcal.app (or
-https://dangkang.github.io/hycalendar-mac/ as a fallback).
+The static site that lives at https://dcal.dangkang.com/ (served by GitHub
+Pages from this repo; https://dangkang.github.io/dcal-web/ redirects there).
 
 ## Structure
 
 ```
-docs/
+./
 ├── index.html       ← Hero, features, pricing, FAQ
-├── privacy.html     ← Privacy policy (JA + EN)
-├── terms.html       ← Terms of use (JA + EN)
+├── privacy.html     ← Privacy policy
+├── terms.html       ← Terms of use
+├── tokusho.html     ← 特定商取引法に基づく表記
+├── en/              ← English versions of the pages above
+├── CNAME            ← Custom domain for GitHub Pages
 ├── _config.yml      ← GitHub Pages / Jekyll config
 └── assets/
     └── style.css    ← Single CSS file for the whole site
@@ -19,25 +22,25 @@ docs/
 
 1. Repository **Settings** → **Pages**
 2. **Source**: `Deploy from a branch`
-3. **Branch**: `main` / `docs` folder
+3. **Branch**: `main` / `/ (root)`
 4. Click **Save**
 
-After ~1 minute the site is published at
-`https://<username>.github.io/<repo>/`.
+After ~1 minute the site is published.
 
-## Custom domain (`dcal.app`)
+## Custom domain (`dcal.dangkang.com`)
 
-1. Purchase the domain (お名前.com / Cloudflare Registrar)
-2. Add a `CNAME` file under `docs/` containing exactly `dcal.app`
-3. At the DNS provider, add an `ALIAS` / `ANAME` / `CNAME` record pointing
-   `dcal.app` → `<username>.github.io`
-4. Wait for DNS propagation (~minutes); GitHub auto-provisions HTTPS via
-   Let's Encrypt
+1. The `CNAME` file at the repo root contains exactly `dcal.dangkang.com`
+2. DNS for `dangkang.com` is managed at VALUE-DOMAIN. The zone has a
+   wildcard `*` record, so `dcal` needs its own line:
+   `cname dcal dangkang.github.io.`
+3. GitHub provisions HTTPS via Let's Encrypt once DNS resolves; keep
+   **Enforce HTTPS** on
+4. Moved from `dangkang.github.io/dcal-web/` on 2026-10-29 so that the
+   Stripe account lists a site on its own domain
 
 ## Local preview
 
 ```bash
-cd docs/
 python3 -m http.server 8000
 # → open http://localhost:8000/
 ```

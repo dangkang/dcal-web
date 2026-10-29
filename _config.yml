@@ -5,7 +5,7 @@
 
 title: dCal
 description: ローカル完結のスケジュール帳
-url: https://dcal.app
+url: https://dcal.dangkang.com
 
 # Disable Jekyll's default theme (we ship custom CSS).
 theme: null
