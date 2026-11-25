@@ -14,4 +14,8 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://dcal.dangkang.com/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://dcal.dangkang.com/en/"/>
   </url>
+  <url>
+    <loc>https://dcal.dangkang.com/guide/offline-calendar.html</loc>
+    <lastmod>2026-11-25</lastmod>
+  </url>
 </urlset>

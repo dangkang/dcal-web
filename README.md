@@ -11,6 +11,7 @@ Pages from this repo; https://dangkang.github.io/dcal-web/ redirects there).
 ├── privacy.html     ← Privacy policy
 ├── terms.html       ← Terms of use
 ├── tokusho.html     ← 特定商取引法に基づく表記
+├── guide/           ← Articles that bring in search visitors (Japanese)
 ├── en/              ← English versions of the pages above
 ├── robots.txt       ← Points crawlers at the sitemap
 ├── sitemap.xml      ← Add every new public page here
