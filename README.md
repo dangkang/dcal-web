@@ -12,6 +12,8 @@ Pages from this repo; https://dangkang.github.io/dcal-web/ redirects there).
 ├── terms.html       ← Terms of use
 ├── tokusho.html     ← 特定商取引法に基づく表記
 ├── en/              ← English versions of the pages above
+├── robots.txt       ← Points crawlers at the sitemap
+├── sitemap.xml      ← Add every new public page here
 ├── CNAME            ← Custom domain for GitHub Pages
 ├── _config.yml      ← GitHub Pages / Jekyll config
 └── assets/

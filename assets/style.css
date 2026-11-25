@@ -118,6 +118,13 @@ pre code { background: transparent; padding: 0; color: inherit; }
     letter-spacing: -0.02em;
     margin: 72px 0 24px;
 }
+.hero .eyebrow {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 72px 0 0;
+}
+.hero .eyebrow + h1 { margin-top: 12px; }
 .hero h1 .accent { color: var(--accent); }
 .hero .lead {
     font-size: 18px;
@@ -453,6 +460,7 @@ details p { color: var(--text-muted); font-size: 14px; margin: 12px 0 0; }
 @media (max-width: 640px) {
     .hero { padding: 0 0 56px; }
     .hero h1 { margin-top: 48px; }
+    .hero .eyebrow { margin-top: 48px; font-size: 14px; }
     .section { padding: 56px 0; }
     .nav ul { display: none; }
     .nav { padding: 16px 0; }
